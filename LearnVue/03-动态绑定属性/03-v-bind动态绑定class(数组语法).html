@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  加上引号表示是字符串  -->
+    <h2 class="title" v-bind:class="['active', 'line']">{{message}}</h2>
+<!--  不加引号表示对象  -->
+    <h2 class="title" v-bind:class="[active, line]">{{message}}</h2>
+    <h2 class="title" v-bind:class="getClasses()">{{message}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data:{
+            message: "Hello, vuejs!",
+            active: 'aaa',
+            line: 'bbb'
+        },
+        methods:{
+            getClasses: function () {
+                return [this.active, this.line]
+            }
+        }
+    })
+</script>
+</body>
+</html>

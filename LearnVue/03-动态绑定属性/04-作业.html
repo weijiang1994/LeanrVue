@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .active{
+        color: red;
+
+    }
+    li{
+        cursor: pointer;
+    }
+</style>
+<!--点击列表中的哪一项，那么该项的文字变成红色-->
+<div id="app">
+    <ul>
+        <li v-on:click="liClick(index)" v-bind:class="activate(index)" v-for="(movie, index) in movies">{{index}}-{{movie}}</li>
+    </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data:{
+            movies: ['肖申克的救赎', '海尔兄弟', '黑猫警长', '苏克贝塔', '火影忍者博人传'],
+            isActive: true,
+            currentIndex: 0,
+        },
+        methods:{
+            liClick:function (index) {
+                this.currentIndex = index
+            },
+            activate: function (index) {
+                if (index === this.currentIndex){
+                    return {active: this.isActive}
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
