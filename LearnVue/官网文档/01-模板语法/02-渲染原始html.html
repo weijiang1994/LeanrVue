@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--mustache语法会将其中的数据渲染成普通的文本-->
+    <h2>{{rawHtml}}</h2>
+    <!--使用v-html渲染成html-->
+    <!--注意不能使用v-html来复合局部模板,因为vue不是基于字符串的模板引擎.-->
+    <h2 v-html="rawHtml"></h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: 'Hello, Vue.js!',
+            rawHtml: '<span style="color: red">我是红色字啊!</span>'
+        }
+    })
+</script>
+</body>
+</html>

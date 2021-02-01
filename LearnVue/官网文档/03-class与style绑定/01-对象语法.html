@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red-font{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--{'类名': true/false}-->
+    <h2 v-bind:class="{'red-font': isRed}">{{message}}</h2>
+    <!--与固定class结合-->
+    <h2 class="bigFont" v-bind:class="{'red-font': isRed}">{{message}}</h2>
+    <!--数据对象定义在data中-->
+    <h2 v-bind:class="fontClass">{{message}}</h2>
+    <!--绑定计算属性-->
+    <h2 v-bind:class="classObject">{{message}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: 'Hello, Vue.js!',
+            isRed: true,
+            fontClass:{
+                'red-font': true
+            }
+        },
+        computed:{
+            classObject: function (){
+                return {
+                    'red-font': true
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

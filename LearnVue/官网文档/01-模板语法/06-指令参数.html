@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{message}}</h2>
+    <p><b>1.参数</b></p>
+    <!--
+    一些指令能够接收一个“参数”，在指令名称之后以冒号表示。例如，v-bind 指令可以用于响应式地更新 HTML attribute：
+    在这里 href 是参数，告知 v-bind 指令将该元素的 href attribute 与表达式 url 的值绑定。
+    --->
+    <a target="_blank" v-bind:href="url">百度一下,你就知道!</a>
+    <!--v-on指令也可以接收一个参数-->
+    <button v-on:click="clickBtn">点我试试看</button>
+    <p><b>2.动态参数</b></p>
+    <p>{{dynamic}}</p>
+    <!--
+    从2.6.0版本开始，可以用方括号括起来JavaScript表达式作为一个指令的参数
+    -->
+    
+    <!--
+    这里的 attributeName 会被作为一个 JavaScript 表达式进行动态求值，求得的值将会作为最终的参数来使用。例如，如果你的 Vue 实例有一个
+    data property attributeName，其值为 "href"，那么这个绑定将等价于 v-bind:href。
+    同样地，你可以使用动态参数为一个动态的事件名绑定处理函数：
+    -->
+    <p><b>3.缩写</b></p>
+    <!--
+    v- 前缀作为一种视觉提示，用来识别模板中 Vue 特定的 attribute。当你在使用 Vue.js 为现有标签添加动态行为 (dynamic behavior) 时，
+    v- 前缀很有帮助，然而，对于一些频繁用到的指令来说，就会感到使用繁琐。同时，在构建由 Vue 管理所有模板的单页面应用程序 (SPA - single
+    page application) 时，v- 前缀也变得没那么重要了。因此，Vue 为 v-bind 和 v-on 这两个最常用的指令，提供了特定简写：
+    -->
+    <a v-bind:href="url">点我</a>
+    <!--缩写-->
+    <a :href="url">点我</a>
+
+    <button v-on:click="clickBtn">点我</button>
+    <!--缩写-->
+    <button @click="clickBtn">点我</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: 'Hello, Vue.js!',
+            url: 'https://www.baidu.com',
+            dynamic: '<a v-bind:[attributeName]="url"> doSomething </a>'
+        },
+        methods:{
+            clickBtn: function (){
+                alert('点击了按钮!');
+            }
+        }
+    })
+</script>
+</body>
+</html>

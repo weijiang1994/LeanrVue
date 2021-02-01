@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--mustache语法直接渲染-->
+    <h2>{{message}}</h2>
+    <!--v-once 只会渲染一次,改变message的值这里不会改变-->
+    <h2 v-once>{{message}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: 'Hello, Vue.js!',
+        }
+    })
+</script>
+</body>
+</html>

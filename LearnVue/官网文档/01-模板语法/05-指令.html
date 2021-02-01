@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--
+    指令 (Directives) 是带有 v- 前缀的特殊 attribute。指令 attribute 的值预期是单个 JavaScript
+    表达式 (v-for 是例外情况，稍后我们再讨论)。指令的职责是，当表达式的值改变时，
+    将其产生的连带影响，响应式地作用于 DOM。
+-->
+    <h2>{{message}}</h2>
+    <p v-if="seen">现在看到我了!</p>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: 'Hello, Vue.js!',
+            seen: true,
+        }
+    })
+</script>
+</body>
+</html>

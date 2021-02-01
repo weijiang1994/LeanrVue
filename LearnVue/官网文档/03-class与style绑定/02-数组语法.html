@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--我们可以把一个数组传给 v-bind:class，以应用一个 class 列表：-->
+    <div v-bind:class="[activeClass, errorClass]"></div>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: 'Hello, Vue.js!',
+            activeClass: 'active',
+            errorClass: 'error'
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--mustache语法不能使用在属性上面,下面这种写法是错误的.-->
+    <!--    <h2 id="{{keyId}}"></h2>-->
+    <h2>{{message}}</h2>
+    <!--我们可以使用v-bind指令-->
+    <h2 v-bind:id="keyId">{{keyId}}</h2>
+    <!--对于bool类型的属性来说-->
+    <button v-bind:disabled="isDisabled">按钮</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const  app = new Vue({
+        el: '#app',
+        data:{
+            message: 'Hello, Vue.js!',
+            keyId: '12',
+            isDisabled: true
+        }
+    })
+</script>
+</body>
+</html>
