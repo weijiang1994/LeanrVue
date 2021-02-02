@@ -17,6 +17,7 @@
     </form>
     <!--监听某个键盘按键事件-->
     <input type="text" @keyup.enter="keyUp">
+    <button @click.once="btn2Click">按钮2</button>
 </div>
 <script src="../js/vue.js"></script>
 <script>
@@ -37,6 +38,9 @@
             },
             keyUp(){
                 console.log('key up le ');
+            },
+            btn2Click(){
+                console.log('btn2 click');
             }
         }
     })
