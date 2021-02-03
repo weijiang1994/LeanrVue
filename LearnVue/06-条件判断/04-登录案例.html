@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <span v-if="isUser">
+        <label for="username">用户名</label>
+        <input type="text" id="username">
+    </span>
+    <span v-else>
+<label for="email">邮箱</label>
+        <input type="text" id="email">
+    </span>
+    <button @click="change">切换</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data:{
+            message: "Hello, vuejs!",
+            isUser: true
+        },
+        methods:{
+            change(){
+                this.isUser = !this.isUser;
+            }
+        }
+    })
+</script>
+</body>
+</html>
